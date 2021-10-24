@@ -25,7 +25,7 @@ public class Main extends ShellAccessor {
     } **/
 
     public static void main(String[]args){
-        System.out.println(checkAndColor("test \" hallo java color int intp this "));
+        System.out.println(checkAndColor("test \" hallo \" java color int intp this "));
     }
 
 

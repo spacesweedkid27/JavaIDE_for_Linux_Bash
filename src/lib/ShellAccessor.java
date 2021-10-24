@@ -47,17 +47,39 @@ public class ShellAccessor {
     public static final String ANSI_BRIGHT_BG_WHITE = "\u001B[107m";
 
 
-    final private static String mainKeywords[] = {"abstract", "assert", "boolean", "break", "byte", "case", "catch", "class", "continue", "default", "do", "double", "else", "enum", "extends", "final", "finally", "float", "for", "implements", "import", "instanceof", "int", "interface", "long", "native", "new", "null", "package", "private", "protected", "public", "return", "short", "static", "strictfp", "super", "switch", "synchronized", "this", "throw", "throws", "transient", "try", "void", "volatile"};
+    final private static String[] mainKeywords = {"abstract", "assert", "boolean", "break", "byte", "case", "catch", "class", "continue", "default", "do", "double", "else", "enum", "extends", "final", "finally", "float", "for", "implements", "import", "instanceof", "int", "interface", "long", "native", "new", "null", "package", "private", "protected", "public", "return", "short", "static", "strictfp", "super", "switch", "synchronized", "this", "throw", "throws", "transient", "try", "void", "volatile"};
 
 
     public static String checkAndColor(String input){
         String temp = input;
 
-        for(int i = 0; i < mainKeywords.length; i++){
-           temp = temp.replaceAll(" "+mainKeywords[i]+" "," "+colorString(mainKeywords[i],ANSI_BLUE,"")+" ");
+
+        for (String mainKeyword : mainKeywords) {
+            temp = temp.replaceAll(" " + mainKeyword + " ", " " + colorString(mainKeyword, ANSI_BLUE, "") + " ");
         }
 
-        temp = temp.replaceAll("\"",colorString("\"",ANSI_GREEN,""));
+        int index1 = 0;
+        int index2 = 0;
+        int timesAStringIndication = 0;
+
+        for(int i = 0; i < input.length(); i++) {
+
+            if (input.toCharArray()[i]=='\"') {
+                timesAStringIndication++;
+                index1 = index2;
+                index2 = i;
+                }
+            if (timesAStringIndication == 2) {
+                System.out.println(input.substring(index1, index2+1));
+                temp = temp.replaceAll(input.substring(index1, index2+1),colorString(input.substring(index1, index2+1),ANSI_GREEN,""));
+                timesAStringIndication = 0;
+            }
+            }
+
+
+
+
+
 
         return temp;
     }
