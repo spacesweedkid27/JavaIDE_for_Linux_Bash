@@ -2,6 +2,7 @@ package lib;
 
 import java.awt.color.ICC_ColorSpace;
 import java.util.HashMap;
+import java.util.regex.PatternSyntaxException;
 
 public class ShellAccessor {
 
@@ -55,12 +56,13 @@ public class ShellAccessor {
 
 
         for (String mainKeyword : mainKeywords) {
-            temp = temp.replaceAll(" " + mainKeyword + " ", " " + colorString(mainKeyword, ANSI_BLUE, "") + " ");
+            temp = temp.replaceAll(mainKeyword, colorString(mainKeyword, ANSI_BLUE, ""));
         }
 
         int index1 = 0;
         int index2 = 0;
         int timesAStringIndication = 0;
+        int timesACharIndication = 0;
 
         for(int i = 0; i < input.length(); i++) {
 
@@ -70,13 +72,37 @@ public class ShellAccessor {
                 index2 = i;
                 }
             if (timesAStringIndication == 2) {
-                System.out.println(input.substring(index1, index2+1));
-                temp = temp.replaceAll(input.substring(index1, index2+1),colorString(input.substring(index1, index2+1),ANSI_GREEN,""));
+                try {
+                    temp = temp.replaceAll(input.substring(index1, index2 + 1), colorString(input.substring(index1, index2 + 1), ANSI_GREEN, ""));
+                } catch (PatternSyntaxException patternSyntaxException) {
+                    patternSyntaxException.printStackTrace();
+                }
+
                 timesAStringIndication = 0;
             }
             }
 
+        index1 = 0;
+        index2 = 0;
 
+
+        for(int i = 0; i < input.length(); i++) {
+
+            if (input.toCharArray()[i]=='\'') {
+                timesACharIndication++;
+                index1 = index2;
+                index2 = i;
+            }
+            if (timesACharIndication == 2) {
+                try {
+                    temp = temp.replaceAll(input.substring(index1, index2 + 1), colorString(input.substring(index1, index2 + 1), ANSI_GREEN, ""));
+                } catch (PatternSyntaxException patternSyntaxException) {
+                    patternSyntaxException.printStackTrace();
+                }
+
+                timesACharIndication = 0;
+            }
+        }
 
 
 
