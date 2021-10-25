@@ -1,6 +1,9 @@
 package bin;
 
 import lib.ShellAccessor;
+import lib.ShellRenderer;
+
+import java.util.Locale;
 
 
 public class Main extends ShellAccessor {
@@ -25,8 +28,20 @@ public class Main extends ShellAccessor {
 
 
 
-    public static void main(String[]args){
-        System.out.println(checkAndColor(test));
+    public static void main(String[]args) throws InterruptedException {
+
+        long milliseconds = 20;
+
+        ShellRenderer shellRenderer = new ShellRenderer(milliseconds);
+        shellRenderer.start();
+
+        while (true){
+            Thread.sleep(milliseconds);
+            shellRenderer.setFrame(test.toUpperCase());
+            Thread.sleep(milliseconds);
+            shellRenderer.setFrame(test.toLowerCase());
+        }
+
     }
 
 
