@@ -1,0 +1,22 @@
+(WORK IN PROGRESS V.00.1)
+
+To compile this project you need an JDK
+
+you should be in this projects home directory for these instructions
+
+
+First compile the libraries needed to execute the Main program:
+
+/PATH_TO_JDK_HOME/bin/javac -d ./bin ./src/lib/*.java
+
+Then compile the Main itself:
+
+/PATH_TO_JDK_HOME/bin/javac -d ./bin -cp ./bin ./src/bin/*.java
+
+Now there should be everything compiled in ./bin
+if you ls in there you should see ./bin/bin and ./bin/lib
+
+What is left to do is configure the run.sh located in the first bin:
+Replace "/PATH_TO_JDK/" to your jdk home directory
+
+If not yet marked as executable you should chmod +x run.sh
