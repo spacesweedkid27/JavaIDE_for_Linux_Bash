@@ -17,5 +17,5 @@ Update:
 
 -Renderer seems very complete.
 
-![](./github/icons/demo1.png)
+![](./github/gifs/demo1.gif)
 
