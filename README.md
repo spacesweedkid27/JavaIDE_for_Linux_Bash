@@ -17,4 +17,4 @@ Update:
 
 -Renderer seems very complete.
 
-[![Alternate Text]({./github/icons/demo1.png})]({./github/videos/demo1.mp4} "Link Title")
+[[![Alternate Text]({./github/icons/demo1.png})]({./github/videos/demo1.mp4} "Link Title")
