@@ -15,3 +15,9 @@ Download a release, unpack it and modify the run.sh in bin to use an JDK you hav
 After that you should check if the file is set to be executable, if not just chmod +x run.sh
 
 If you want to compile the project yourself, see "HOW TO COMPILE.txt"
+
+Update:
+
+Renderer seems very complete.
+
+(https://imgur.com/Hptz1PK)[link]
