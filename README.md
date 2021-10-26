@@ -17,4 +17,4 @@ Update:
 
 -Renderer seems very complete.
 
-![Renderer](./github/videos/demo1.mp4)
+![](./github/videos/demo1.mp4)
