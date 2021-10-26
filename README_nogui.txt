@@ -21,6 +21,4 @@ If you want to compile the project yourself, see "HOW TO COMPILE.txt"
 
 Update:
 
-Renderer seems very complete.
-
-(https://imgur.com/Hptz1PK)[link]
+-Renderer seems very complete.
