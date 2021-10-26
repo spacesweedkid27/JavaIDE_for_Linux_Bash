@@ -17,4 +17,4 @@ Update:
 
 -Renderer seems very complete.
 
-![cock](https://raw.githubusercontent.com/WiiXLinux/JavaIDE_for_Linux_Bash/master/github/videos/demo1.mp4)
+[![Alternate Text]({/github/icons/demo1.png})]({/github/videos/demo1.mp4} "Link Title")
