@@ -40,7 +40,8 @@ public class Main extends ShellAccessor {
     }
 
     public static void main(String[] args) {
-
+        ShellRenderer shellRenderer = new ShellRenderer(200);
+        shellRenderer.start();
 
     }
 
