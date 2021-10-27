@@ -7,11 +7,7 @@ For example, if you wanted to program in Java but your pc is too slow for Ubuntu
 Ubuntu Server and this IDE to run on it.
 
 ## How to install:
-Download a release, unpack it and modify the run.sh in bin to use an JDK you have installed.
-After that you should check if the file is set to be executable, if not just chmod +x run.sh
-
-If you want to compile the project yourself, see "HOW TO COMPILE.txt"
-For that you don't have to copy /github/
+Either donwload a release and run it or compile via compile.sh
 
 Update:
 
