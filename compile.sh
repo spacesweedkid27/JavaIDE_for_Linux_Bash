@@ -5,4 +5,6 @@ rm jdk-17_linux-x64_bin.tar.gz
 echo "jdk 17 installed in ./java"
 ./java/jdk-17.0.1/bin/javac -d ./bin ./src/lib/*.java
 ./java/jdk-17.0.1/bin/javac -d ./bin -cp ./bin ./src/bin/*.java
+chmod +x ./uninstall.sh
+chmod +x "./bin/LinuxBash\ Java\ IDE.sh"
 echo "installation complete"
