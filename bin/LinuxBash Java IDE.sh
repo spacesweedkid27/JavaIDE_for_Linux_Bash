@@ -1,1 +1,1 @@
-../java/bin/java bin.Main
+ ../java/jdk-17.0.1/bin/java bin.Main
