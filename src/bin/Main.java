@@ -23,9 +23,7 @@ public class Main extends ShellAccessor {
                             return null;                                              
                         }""";
 
-
-    public static void main(String[] args) throws InterruptedException {
-
+    public static void demo1() throws InterruptedException {
         long milliseconds = 25;
 
         ShellRenderer shellRenderer = new ShellRenderer(milliseconds);
@@ -34,11 +32,15 @@ public class Main extends ShellAccessor {
         while (true) {
             for (int i = 0; i < test.length(); i++) {
                 Thread.sleep(milliseconds);
-                shellRenderer.setFrame(test.substring(0, i) + "<*>" + test.substring(i + 2));
+                shellRenderer.setFrame(checkAndColor(test.substring(0, i) + "<*>" + test.substring(i + 2)));
             }
 
 
         }
+    }
+
+    public static void main(String[] args) {
+
 
     }
 
