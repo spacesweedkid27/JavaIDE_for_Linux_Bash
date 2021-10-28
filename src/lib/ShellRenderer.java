@@ -14,9 +14,10 @@ public class ShellRenderer extends Thread {
         this.milliseconds = milliseconds;
     }
 
-
+    private ShellNavigation shellNavigation;
     private long milliseconds;
     private String frame;
+    private String rawFrame;
 
     public void setMilliseconds(long milliseconds) {
         this.milliseconds = milliseconds;
@@ -30,24 +31,29 @@ public class ShellRenderer extends Thread {
         this.frame = frame;
     }
 
-    @Override
-    public void run() {
+    public void setRawFrame(String rawFrame) {
+        this.rawFrame = rawFrame;
+    }
 
-        ShellNavigation shellNavigation = new ShellNavigation();
-
-
+    private void init() {
+        shellNavigation = new ShellNavigation();
+        shellNavigation.setMessage(rawFrame);
         try {
             GlobalScreen.registerNativeHook();
         } catch (NativeHookException ex) {
-
         }
         GlobalScreen.addNativeKeyListener(shellNavigation);
+    }
 
+    @Override
+    public void run() {
+
+        init();
 
         while (true) {
             setFrame(shellNavigation.getMessage());
 
-            System.out.print(frame);
+            System.out.print(ShellAccessor.checkAndColor(frame));
             try {
                 sleep(milliseconds);
             } catch (InterruptedException interruptedException) {
