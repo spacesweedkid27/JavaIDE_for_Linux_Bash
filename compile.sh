@@ -6,5 +6,5 @@ echo "jdk 17 installed in ./java"
 ./java/jdk-17.0.1/bin/javac -d ./bin ./src/lib/*.java
 ./java/jdk-17.0.1/bin/javac -d ./bin -cp ./bin/:./bin/jnativehook-2.2.0.jar ./src/bin/*.java
 chmod +x ./uninstall.sh
-chmod +x "./bin/LinuxBash\ Java\ IDE.sh"
+chmod +x "./bin/'LinuxBash\ Java\ IDE.sh'"
 echo "installation complete"
