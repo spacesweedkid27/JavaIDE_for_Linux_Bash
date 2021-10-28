@@ -1,10 +1,9 @@
 package lib;
 
-import java.awt.color.ICC_ColorSpace;
-import java.util.HashMap;
 import java.util.regex.PatternSyntaxException;
 
 public class ShellAccessor {
+
 
     // Reset the BG and FG color
     public static final String ANSI_RESET = "\u001B[0m";
@@ -51,7 +50,7 @@ public class ShellAccessor {
     final private static String[] mainKeywords = {"abstract", "assert", "boolean", "break", "byte", "case", "catch", "class", "continue", "default", "do", "double", "else", "enum", "extends", "final", "finally", "float", "for", "implements", "import", "instanceof", "int", "interface", "long", "native", "new", "null", "package", "private", "protected", "public", "return", "short", "static", "strictfp", "super", "switch", "synchronized", "this", "throw", "throws", "transient", "try", "void", "volatile"};
 
 
-    public static String checkAndColor(String input){
+    public static String checkAndColor(String input) {
         String temp = input;
 
 
@@ -64,13 +63,13 @@ public class ShellAccessor {
         int timesAStringIndication = 0;
         int timesACharIndication = 0;
 
-        for(int i = 0; i < input.length(); i++) {
+        for (int i = 0; i < input.length(); i++) {
 
-            if (input.toCharArray()[i]=='\"') {
+            if (input.toCharArray()[i] == '\"') {
                 timesAStringIndication++;
                 index1 = index2;
                 index2 = i;
-                }
+            }
             if (timesAStringIndication == 2) {
                 try {
                     temp = temp.replaceAll(input.substring(index1, index2 + 1), colorString(input.substring(index1, index2 + 1), ANSI_GREEN, ""));
@@ -80,15 +79,15 @@ public class ShellAccessor {
 
                 timesAStringIndication = 0;
             }
-            }
+        }
 
         index1 = 0;
         index2 = 0;
 
 
-        for(int i = 0; i < input.length(); i++) {
+        for (int i = 0; i < input.length(); i++) {
 
-            if (input.toCharArray()[i]=='\'') {
+            if (input.toCharArray()[i] == '\'') {
                 timesACharIndication++;
                 index1 = index2;
                 index2 = i;
@@ -105,17 +104,15 @@ public class ShellAccessor {
         }
 
 
-
-
         return temp;
     }
 
 
-    public static void colorPrint(String text, String FG, String BG){
+    public static void colorPrint(String text, String FG, String BG) {
         System.out.print(FG + BG + text + ANSI_RESET);
     }
 
-    public static String colorString(String text, String FG, String BG){
+    public static String colorString(String text, String FG, String BG) {
         return (FG + BG + text + ANSI_RESET);
     }
 }

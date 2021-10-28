@@ -45,15 +45,22 @@ public class ShellRenderer extends Thread {
         GlobalScreen.addNativeKeyListener(shellNavigation);
     }
 
+    private boolean isWindows;
+
     @Override
     public void run() {
-
+        if (System.getProperty("os.name").equals("Windows 10")) {
+            isWindows = true;
+        }
         init();
 
         while (true) {
             setFrame(shellNavigation.getMessage());
-
-            System.out.print(ShellAccessor.checkAndColor(frame));
+            if (!isWindows) {
+                System.out.print(ShellAccessor.checkAndColor(frame));
+            } else {
+                System.out.print(frame);
+            }
             try {
                 sleep(milliseconds);
             } catch (InterruptedException interruptedException) {

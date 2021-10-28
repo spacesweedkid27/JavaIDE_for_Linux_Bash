@@ -39,7 +39,9 @@ public class Main extends ShellAccessor {
         }
     }
 
+
     public static void main(String[] args) {
+
 
         ShellRenderer shellRenderer = new ShellRenderer(1000);
         shellRenderer.setRawFrame(test);
