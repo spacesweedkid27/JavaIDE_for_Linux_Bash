@@ -1,5 +1,8 @@
 package lib;
 
+import com.github.kwhat.jnativehook.GlobalScreen;
+import com.github.kwhat.jnativehook.NativeHookException;
+
 public class ShellRenderer extends Thread {
 
 
@@ -30,8 +33,20 @@ public class ShellRenderer extends Thread {
     @Override
     public void run() {
 
+        ShellNavigation shellNavigation = new ShellNavigation();
+
+
+        try {
+            GlobalScreen.registerNativeHook();
+        } catch (NativeHookException ex) {
+
+        }
+        GlobalScreen.addNativeKeyListener(shellNavigation);
+
 
         while (true) {
+            setFrame(shellNavigation.getMessage());
+
             System.out.print(frame);
             try {
                 sleep(milliseconds);
