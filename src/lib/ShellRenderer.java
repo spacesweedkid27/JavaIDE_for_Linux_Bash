@@ -49,18 +49,15 @@ public class ShellRenderer extends Thread {
 
     @Override
     public void run() {
-        if (System.getProperty("os.name").equals("Windows 10")) {
-            isWindows = true;
-        }
         init();
+
+        // Here I removed the ShellAccessor.checkAndColor because it will never work on Windows
+        // as it isn't supposed to work here at all
 
         while (true) {
             setFrame(shellNavigation.getMessage());
-            if (!isWindows) {
-                System.out.print(ShellAccessor.checkAndColor(frame));
-            } else {
-                System.out.print(frame);
-            }
+            System.out.print(frame);
+
             try {
                 sleep(milliseconds);
             } catch (InterruptedException interruptedException) {
