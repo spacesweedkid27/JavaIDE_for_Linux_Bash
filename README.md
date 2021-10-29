@@ -7,11 +7,12 @@ slow for Ubuntu Desktop, so you install Ubuntu Server and this IDE to run on it.
 
 ## How to install:
 
+You need the jdk 17 one directory above this one \
 Either download a release and run it or compile via compile.sh
 
-Update:
+### Update:
 
--Renderer seems very complete.
+---Renderer seems very complete.
 
 ![](./github/gifs/demo1.gif)
 
